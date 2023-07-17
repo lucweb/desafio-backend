@@ -15,6 +15,10 @@ export class AuthService {
     ) { }
 
     async getUserValidate(signedJwtAccessToken: string): Promise<AuthUser> {
+        
+        if (!signedJwtAccessToken)
+            throw new UnauthorizedException();
+
         const cleanToken = signedJwtAccessToken.replace('Bearer', '').trim();
         const authUser = this.jwtService.decode(cleanToken) as AuthUser
         

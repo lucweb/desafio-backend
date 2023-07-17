@@ -16,4 +16,4 @@ import { RedisModule } from "nestjs-ioredis";
     ])
   ],
 })
-export class GlobalClientsRedisModule { }
+export class GlobalClientsRedisModule {}

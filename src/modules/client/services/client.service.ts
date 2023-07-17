@@ -6,7 +6,7 @@ import { Client } from '../entity/client.entity';
 @Injectable()
 export class ClientService {
   constructor(@InjectRedisClient('REDIS_CLIENT') private redisClient: Redis.Redis) {
-   }
+  }
 
   async findById(id: string): Promise<Client> {
     const model = await this.redisClient.get(id);
@@ -22,10 +22,14 @@ export class ClientService {
     const client = await this.findById(model.id)
     if (!client)
       throw new HttpException({
-        status: HttpStatus.NOT_FOUND,
-        error: 'Cliente inexistente',
+        statusCode: HttpStatus.NOT_FOUND,
+        message: 'Cliente inexistente',
       }, HttpStatus.NOT_FOUND);
 
     return await this.save(model);
+  }
+
+  async delete(id: string): Promise<void> {
+    await this.redisClient.del(id)
   }
 }

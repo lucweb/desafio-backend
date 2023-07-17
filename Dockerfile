@@ -7,6 +7,8 @@ COPY ./.env ./.env
 
 RUN npm install --no-found --loglevel=error --no-optional --quiet
 
+RUN npm run test
+
 RUN npm run build
 
 EXPOSE 3000
