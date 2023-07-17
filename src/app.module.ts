@@ -7,6 +7,8 @@ import { HttpModule } from '@nestjs/axios';
 import { AxiosService } from './services/axios.service';
 import { ClientModule } from './modules/client/client.module';
 import { ConfigModule } from '@nestjs/config';
+import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
+import { RolesGuard } from './auth/roles.guard';
 
 @Module({
   imports: [
@@ -15,6 +17,15 @@ import { ConfigModule } from '@nestjs/config';
     HttpModule
   ],
   controllers: [AppController],
-  providers: [JwtService, AuthService, AxiosService]
+  providers: [
+    JwtService, 
+    AuthService, 
+    AxiosService,
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: RolesGuard
+    },
+  ],
+
 })
 export class AppModule { }
