@@ -10,7 +10,7 @@ Cadastro performático e seguro para os clientes. O escopo deste projeto é impl
 - Atualizar um cliente existente
 - Buscar um cliente por ID
 
-Para garantir a segurança dos dados cadastrados, a empresa disponibiliza uma API para autorização de acesso às operações disponíveis.
+Para garantir a segurança dos dados cadastrados, usamos uma API de terceiro, para autorização de acesso às operações disponíveis.
 
 # Premissas e Restrições
 ## Stack
