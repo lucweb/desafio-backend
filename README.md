@@ -79,7 +79,12 @@ Certifique-se de que o Docker esteja instalado e em execução.
 
 No diretório raiz do projeto, crie a imagem Docker executando o seguinte comando:
 ```
-docker build --pull --rm -f "Dockerfile" -t desafio-backend-dev:latest "."
+docker build --pull --rm -f "Dockerfile" -t desafio-backend-homologation:latest "."
+```
+
+Execute a aplicação em um container Docker:
+```
+docker run -d -p 3000:3000 --name nome-do-container desafio-backend-homologation:latest 
 ```
 
 
@@ -90,6 +95,11 @@ docker build --pull --rm -f "Dockerfile" -t desafio-backend-dev:latest "."
 No diretório raiz do projeto, crie a imagem Docker executando o seguinte comando:
 ```
 docker build --pull --rm -f "Dockerfile.production" -t desafio-backend-production:latest "."
+```
+
+Execute a aplicação em um container Docker:
+```
+docker run -d -p 3000:3000 --name nome-do-container desafio-backend-production:latest 
 ```
 
 
