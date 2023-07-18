@@ -25,6 +25,6 @@ export interface Customers {
     roles: string[]
 }
 
-export enum roles {
-    user
+export enum ROLES {
+    USER = 'user'
 }

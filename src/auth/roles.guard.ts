@@ -1,5 +1,4 @@
-import { CallHandler, CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
-import { AuthService } from './auth.service';
+import { CallHandler, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { Observable } from 'rxjs';
 
@@ -17,7 +16,7 @@ export class RolesGuard {
 
         if (!requestRoles || !roles)
             throw new UnauthorizedException()
-            
+
         if (!requestRoles.some(s => roles.some(c => c === s)))
             throw new UnauthorizedException()
 
